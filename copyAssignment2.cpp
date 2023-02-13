@@ -21,8 +21,8 @@ class Entity {
 Entity::Entity() {
 	cout << "Default operator called" << endl;
 
-	/* Why do I need to use new here? Are pointers not allocated space by default in C++? */
 	/*
+	When I don't allocate space for x & y using new: 
 	Program received signal SIGSEGV, Segmentation fault.
 	0x000055555555525d in Entity::Entity (this=0x7fffffffdf60, a=4, b=4) at copyAssignment(v2).cpp:28
 	28		*(this->y) = b;
