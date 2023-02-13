@@ -11,7 +11,7 @@ class Entity {
 		void setPoint(int a, int b);
 		void printVal();
 
-		//Entity& operator=(const Entity& rhs);
+		Entity& operator=(const Entity& rhs);
 	
 	private:
 		int *x;
@@ -19,7 +19,7 @@ class Entity {
 };
 
 Entity::Entity() {
-	cout << "Default operator called" << endl;
+	cout << "Default constructor called" << endl;
 
 	/*
 	When I don't allocate space for x & y using new: 
@@ -28,6 +28,9 @@ Entity::Entity() {
 	28		*(this->y) = b;
 
 	Why wasn't there seg fault at *(this->x) ??
+
+	ANS: x was mapped from real to virtual because it happened to be in the boundry of one page
+	Generally behaviour is undefined
 	*/
 
 	this->x = new int;
