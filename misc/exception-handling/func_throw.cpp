@@ -1,24 +1,28 @@
 #include <iostream>
-#include <stdexcept>
+#include <exception>
 
-using namespace std;
-
-void test() 
+void Test(int val) 
 {
-        throw 'k';
+	std::cout << "Inside test function! ";
+	std::cout << "Value is = " << val << std::endl;
+
+	if (val) {
+		throw val;
+	}
+
+	return; 
 }
 
 int main()
 {
-        try {
-                test();
-        } catch(int err) {
-                cout << "ERROR: " << err << endl;
-        } catch (char c) {
-                cout << "char type: " << c << endl;
-        }
+	try {
+		std::cout << "Inside try block" << std::endl;
+		Test(0);
+		Test(1);
+		Test(2); // wont execute
+	} catch (int i) {
+		std::cout << "Caught exceptions: " << i << std::endl;
+	}
 
-        return 0;
+	std::cin.get();
 }
-
-
